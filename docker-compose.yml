@@ -1,0 +1,15 @@
+services:
+  retrocession-postgres:
+    image: postgres:16
+    container_name: retrocession-postgres
+    environment:
+      POSTGRES_DB: retrocession
+      POSTGRES_USER: retrocession
+      POSTGRES_PASSWORD: retrocession
+    ports:
+      - "5435:5432"
+    volumes:
+      - retrocession-data:/var/lib/postgresql/data
+
+volumes:
+  retrocession-data:
