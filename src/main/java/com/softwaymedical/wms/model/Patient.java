@@ -22,13 +22,13 @@ public class Patient extends PanacheEntityBase {
     public String ipp;
 
     @Column(nullable = false)
-    public String nom_naissance;
+    public String nomNaissance;
 
     @Column(nullable = false)
     public String prenom;
 
     @Column(nullable = false)
-    public LocalDate date_naissance;
+    public LocalDate dateNaissance;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 1)
@@ -38,12 +38,12 @@ public class Patient extends PanacheEntityBase {
 
     @CreationTimestamp
     @Column(nullable = false)
-    public LocalDateTime created_at;
+    public LocalDateTime createdAt;
 
-    public String nom_usage;
+    public String nomUsage;
     public String adresse;
-    public String complement_adresse;
-    public String code_postal;
+    public String complementAdresse;
+    public String codePostal;
     public String ville;
     public String telephone;
     public String email;
