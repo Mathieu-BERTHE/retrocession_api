@@ -1,7 +1,5 @@
-package com.softwaymedical.wms.model;
+package com.softwaymedical.wms.patient.model;
 
-
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,15 +8,15 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "patient")
-public class Patient extends PanacheEntityBase {
+public class Patient {
 
-    public enum Sexe {M,F,I};
+    public enum Sexe {M, F, I}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, updatable = false)
     public String ipp;
 
     @Column(nullable = false)
@@ -34,10 +32,11 @@ public class Patient extends PanacheEntityBase {
     @Column(nullable = false, length = 1)
     public Sexe sexe;
 
+    @Column(unique = true)
     public String ins;
 
     @CreationTimestamp
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     public LocalDateTime createdAt;
 
     public String nomUsage;
@@ -47,7 +46,4 @@ public class Patient extends PanacheEntityBase {
     public String ville;
     public String telephone;
     public String email;
-
-//    public String CONSTRAINT patient_sexe_check CHECK ((sexe = ANY (ARRAY['M'::bpchar, 'F'::bpchar, 'I'::bpchar])))
-
 }
